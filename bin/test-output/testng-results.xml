@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="23546" started-at="2015-06-01T00:28:15Z" finished-at="2015-06-01T00:28:39Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="23546" started-at="2015-06-01T00:28:15Z" finished-at="2015-06-01T00:28:39Z">
+      <class name="com.seleniumtests.test.WebDriverExcercise">
+        <test-method status="PASS" signature="launchBrowser(java.lang.String)[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@5a01ccaa]" name="launchBrowser" is-config="true" duration-ms="8494" started-at="2015-06-01T01:28:15Z" finished-at="2015-06-01T01:28:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FF]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="testNavigateToNewLocation(com.seleniumtests.dataobject.RegistrationData)[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@5a01ccaa]" name="testNavigateToNewLocation" duration-ms="14692" started-at="2015-06-01T01:28:24Z" data-provider="regData" finished-at="2015-06-01T01:28:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.seleniumtests.dataobject.RegistrationData@1972e513]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigateToNewLocation -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@5a01ccaa]" name="closeBrowser" is-config="true" duration-ms="350" started-at="2015-06-01T01:28:39Z" finished-at="2015-06-01T01:28:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

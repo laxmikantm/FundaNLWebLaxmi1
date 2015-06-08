@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="3" name="Failed suite [Selenium Tests]" parallel="tests">
+  <parameter name="browser" value="Cloud"/>
+  <listeners>
+    <listener class-name="com.seleniumtests.test.WebDriverExcercise"/>
+  </listeners>
+  <test name="Test on Browserstack(failed)" parallel="tests">
+    <parameter name="browser" value="Cloud"/>
+    <classes>
+      <class name="com.seleniumtests.test.WebDriverExcercise">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="loginProcedure" invocation-numbers="0"/>
+          <include name="initalisation"/>
+          <include name="initalisation"/>
+        </methods>
+      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+    </classes>
+  </test> <!-- Test on Browserstack(failed) -->
+  <test name="Test in FF(failed)" parallel="tests">
+    <parameter name="browser" value="FF"/>
+    <classes>
+      <class name="com.seleniumtests.test.WebDriverExcercise">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="loginProcedure" invocation-numbers="0"/>
+          <include name="initalisation"/>
+          <include name="initalisation"/>
+        </methods>
+      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+    </classes>
+  </test> <!-- Test in FF(failed) -->
+</suite> <!-- Failed suite [Selenium Tests] -->

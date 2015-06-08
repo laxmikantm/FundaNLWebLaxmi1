@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="3" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="61098" started-at="2015-06-08T02:30:15Z" finished-at="2015-06-08T02:31:16Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="61098" started-at="2015-06-08T02:30:15Z" finished-at="2015-06-08T02:31:16Z">
+      <class name="com.seleniumtests.test.WebDriverExcercise">
+        <test-method status="PASS" signature="initalisation(java.lang.String)[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@b684286]" name="initalisation" is-config="true" duration-ms="3225" started-at="2015-06-08T03:30:11Z" finished-at="2015-06-08T03:30:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FF]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initalisation -->
+        <test-method status="PASS" signature="loginProcedure(com.seleniumtests.dataobject.LoginData)[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@b684286]" name="loginProcedure" duration-ms="8636" started-at="2015-06-08T03:30:15Z" data-provider="loginData" finished-at="2015-06-08T03:30:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.seleniumtests.dataobject.LoginData@b86de0d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginProcedure -->
+        <test-method status="PASS" signature="navigateToSKUS()[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@b684286]" name="navigateToSKUS" duration-ms="6059" started-at="2015-06-08T03:30:23Z" depends-on-methods="com.seleniumtests.test.WebDriverExcercise.loginProcedure" finished-at="2015-06-08T03:30:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToSKUS -->
+        <test-method status="FAIL" signature="createSKUResource(com.seleniumtests.dataobject.SKUData)[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@b684286]" name="createSKUResource" duration-ms="46377" started-at="2015-06-08T03:30:29Z" data-provider="skuData" depends-on-methods="com.seleniumtests.test.WebDriverExcercise.navigateToSKUS" finished-at="2015-06-08T03:31:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.seleniumtests.dataobject.SKUData@13d4992d]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.InvalidElementStateException">
+            <message>
+              <![CDATA[Element is disabled and so may not be used for actions
+Command duration or timeout: 2.07 seconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'UK1LPT11', ip: '192.168.0.6', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_31'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=33.0, platform=WINDOWS, nativeEvents=true, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 55690982-8aa6-4030-955a-7766dccab8a7]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidElementStateException: Element is disabled and so may not be used for actions
+Command duration or timeout: 2.07 seconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'UK1LPT11', ip: '192.168.0.6', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_31'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=33.0, platform=WINDOWS, nativeEvents=true, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 55690982-8aa6-4030-955a-7766dccab8a7
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:50)
+	at com.sun.proxy.$Proxy9.clear(Unknown Source)
+	at com.seleniumtests.pageobject.AddNewSKUPage.enterProductType(AddNewSKUPage.java:81)
+	at com.seleniumtests.pageobject.AddNewSKUPage.addNewSKU(AddNewSKUPage.java:104)
+	at com.seleniumtests.test.WebDriverExcercise.createSKUResource(WebDriverExcercise.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+Caused by: org.openqa.selenium.InvalidElementStateException: Element is disabled and so may not be used for actions
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'UK1LPT11', ip: '192.168.0.6', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_31'
+Driver info: driver.version: unknown
+	at <anonymous class>.fxdriver.preconditions.enabled(file:///C:/Users/LAXMI~1.SOM/AppData/Local/Temp/anonymous538823001849520924webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:9593)
+	at <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/LAXMI~1.SOM/AppData/Local/Temp/anonymous538823001849520924webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12257)
+	at <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/LAXMI~1.SOM/AppData/Local/Temp/anonymous538823001849520924webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12274)
+	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/LAXMI~1.SOM/AppData/Local/Temp/anonymous538823001849520924webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:603)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidElementStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createSKUResource -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.seleniumtests.test.WebDriverExcercise@b684286]" name="closeBrowser" is-config="true" duration-ms="435" started-at="2015-06-08T03:31:16Z" finished-at="2015-06-08T03:31:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
