@@ -4,42 +4,33 @@ import org.testng.annotations.DataProvider;
 
 import com.seleniumtests.support.Helper;
 
-public class LoginData {
 
-	private String username;
-	private String password;
+public class LandingPageData {
 
-
-
-	public String getUsername() {
-		return username;
+	private String searchKeyword;
+	public String getSearchKeyword() {
+		return searchKeyword;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
-	@DataProvider(name = "loginData")
+	@DataProvider(name = "searchData")
 	public static Object[][] getLoginData() {
-		LoginData registrationData = new LoginData();
-		registrationData.setUsername( Helper.USER_NAME);
-		registrationData.setPassword(Helper.PASSWORD);
-	
-		return new LoginData[][] { { registrationData } };
+		LandingPageData landingPageData = new LandingPageData();
+		landingPageData.setSearchKeyword(Helper.SEARCH_KEYWORD);
+
+
+		return new LandingPageData[][] { { landingPageData } };
 	}
-//
-//	@DataProvider(name = "loginData")
-//	public static Object[][] getLoginData() {
-//		return new Object[][] { { Helper.USER_NAME, Helper.PASSWORD } };
-//	}
+	//
+	//	@DataProvider(name = "loginData")
+	//	public static Object[][] getLoginData() {
+	//		return new Object[][] { { Helper.USER_NAME, Helper.PASSWORD } };
+	//	}
 
 
 

@@ -1,93 +1,150 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("Pond5ResourceSearch.feature");
 formatter.feature({
   "line": 2,
-  "name": "login to OneFlow Parameterised",
+  "name": "Search a Car related resource on the Pond5 web-portal",
   "description": "",
-  "id": "login-to-oneflow-parameterised",
+  "id": "search-a-car-related-resource-on-the-pond5-web-portal",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@runY"
+      "name": "@runX"
     }
   ]
 });
 formatter.scenario({
   "line": 4,
-  "name": "Login to the OneFlow",
+  "name": "Searching for car related resources",
   "description": "",
-  "id": "login-to-oneflow-parameterised;login-to-the-oneflow",
+  "id": "search-a-car-related-resource-on-the-pond5-web-portal;searching-for-car-related-resources",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
   "line": 5,
-  "name": "I am on the login page",
+  "name": "I am on the Pond5 Home Page",
   "keyword": "Given "
 });
 formatter.step({
   "line": 6,
-  "name": "I fill \u003cusername\u003e and \u003cpassword\u003e on the login page",
+  "name": "I fill in \u003ckeyword\u003e in search box",
   "keyword": "When "
 });
 formatter.step({
   "line": 7,
-  "name": "I click keyboard enter key in order to login",
+  "name": "I click on Find button",
   "keyword": "And "
 });
 formatter.step({
   "line": 8,
-  "name": "the \u003cstatus\u003e should be shown",
+  "name": "the search results for the \"keyword\" should be displayed",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 9,
+  "name": "the search results page should have correct title \u0026 header",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "the search results page should have correct page footer",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 11,
+  "name": "the search results page should have \"filters\"",
   "rows": [
     {
       "cells": [
-        "username",
-        "password",
-        "status"
-      ],
-      "line": 10
-    },
-    {
-      "cells": [
-        "IncorrectUsername",
-        "InvalidPassword",
-        "unsuccessful"
-      ],
-      "line": 11
-    },
-    {
-      "cells": [
-        "SteeleVirginia",
-        "challenge!",
-        "successful"
+        "Membership Type, Price Range, Resolution, FPS"
       ],
       "line": 12
+    },
+    {
+      "cells": [
+        "keyword"
+      ],
+      "line": 14
+    },
+    {
+      "cells": [
+        "Car"
+      ],
+      "line": 15
+    },
+    {
+      "cells": [
+        "Bus"
+      ],
+      "line": 16
+    },
+    {
+      "cells": [
+        "Sky"
+      ],
+      "line": 17
+    },
+    {
+      "cells": [
+        "Pop-band"
+      ],
+      "line": 18
     }
   ],
-  "keyword": "Then "
+  "keyword": "And "
 });
 formatter.match({
-  "location": "WebDriverExcerciseBDD.login_page()"
+  "location": "WebDriverExcerciseBDD.landingPage()"
 });
 formatter.result({
-  "duration": 186806706,
-  "error_message": "java.lang.NullPointerException\r\n\tat com.seleniumtests.pageobject.BasePage.getBasePage(BasePage.java:49)\r\n\tat com.seleniumtests.pageobject.LoginPage.getBasePage(LoginPage.java:37)\r\n\tat com.seleniumtests.test.WebDriverExcerciseBDD.login_page(WebDriverExcerciseBDD.java:41)\r\n\tat ✽.Given I am on the login page(Login.feature:5)\r\n",
+  "duration": 287357092,
+  "error_message": "java.lang.NullPointerException\n\tat com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)\n\tat org.openqa.selenium.support.ui.FluentWait.\u003cinit\u003e(FluentWait.java:94)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:70)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:44)\n\tat com.seleniumtests.pageobject.LandingPage.\u003cinit\u003e(LandingPage.java:31)\n\tat com.seleniumtests.test.WebDriverExcerciseBDD.landingPage(WebDriverExcerciseBDD.java:30)\n\tat ✽.Given I am on the Pond5 Home Page(Pond5ResourceSearch.feature:5)\n",
   "status": "failed"
 });
 formatter.match({
-  "location": "WebDriverExcerciseBDD.i_fill_username_and_password_on_the_login_page(String,String)"
+  "location": "WebDriverExcerciseBDD.i_fill_in_keyword_in_search_box()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "WebDriverExcerciseBDD.i_click_keyboard_enter_key_in_order_to_login()"
+  "location": "WebDriverExcerciseBDD.i_click_on_Find_button()"
 });
 formatter.result({
   "status": "skipped"
 });
 formatter.match({
-  "location": "WebDriverExcerciseBDD.the_status_should_be_shown()"
+  "arguments": [
+    {
+      "val": "keyword",
+      "offset": 28
+    }
+  ],
+  "location": "WebDriverExcerciseBDD.the_search_results_for_the_should_be_displayed(String)"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "WebDriverExcerciseBDD.the_search_results_page_should_have_correct_title_header()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "WebDriverExcerciseBDD.the_search_results_page_should_have_correct_page_footer()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "filters",
+      "offset": 37
+    }
+  ],
+  "location": "WebDriverExcerciseBDD.the_search_results_page_should_have(String,DataTable)"
 });
 formatter.result({
   "status": "skipped"

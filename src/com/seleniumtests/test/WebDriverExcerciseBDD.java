@@ -1,21 +1,12 @@
 /**
- * 
+ * (c) Laxmi Somni
  */
 package com.seleniumtests.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Assert;
-import org.testng.TestListenerAdapter;
-import org.testng.TestNG;
-
 import com.seleniumtests.core.SelTestCase;
+import com.seleniumtests.pageobject.HomePage;
 import com.seleniumtests.pageobject.LandingPage;
-import com.seleniumtests.pageobject.LoginPage;
-import com.seleniumtests.support.Helper;
 
-import junit.framework.TestListener;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -27,53 +18,69 @@ import cucumber.api.java.en.When;
  *
  */
 public class WebDriverExcerciseBDD extends SelTestCase {
-	
+
 	WebDriverExcercise WebDriverExcercise=new WebDriverExcercise();
-	LoginPage loginPage;
+	HomePage loginPage;
 	LandingPage landingPage;
-	
 
-	@Given("^I am on the login page$")
-	public void login_page(){
-		
-		 loginPage= new LoginPage(driver);		 
-		 loginPage
-				.getBasePage();
+
+	@Given("^I am on the Pond5 Home Page$")
+	public void landingPage(){
+
+		landingPage= new LandingPage(driver);
+		landingPage.
+		getBasePage(driver);
 
 	}
 
-	@When("^I fill <username> and <password> on the login page$")
-	public void i_fill_username_and_password_on_the_login_page(String sUserName, String sPassword) {
-		
-		loginPage
-			.keyInLogin
-				(sUserName, sPassword);	
-		
-	}
+	@When("^I fill in  \"([^\"]*)\" in search box$")
+	public void i_fill_in_search_Keyword(String sKeyWord) {
 
-	@When("^I click keyboard enter key in order to login$")
-	public void i_click_keyboard_enter_key_in_order_to_login(){
-			
-		 landingPage=loginPage.signIn();
+		landingPage
+		.performSearch(sKeyWord);
+
 	}
 
 
-	
-	@Then("^the <status> should be shown$")
-	public void the_status_should_be_shown(){
-		Assert
-				.assertEquals
-					(landingPage.verifyPageURL()
-							, "New location URL's not as per expected");
-						
-		
-		Assert
-			.assertTrue
-				(landingPage
-					.getTitle()
-							.equalsIgnoreCase(Helper.EXPECTED_TITLE_LANDING_PAGE));
+
+	@When("^I fill in <keyword> in search box$")
+	public void i_fill_in_keyword_in_search_box() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
 	}
 
+	@When("^I click on Find button$")
+	public void i_click_on_Find_button() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	@Then("^the search results for the \"([^\"]*)\" should be displayed$")
+	public void the_search_results_for_the_should_be_displayed(String arg1) throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	@Then("^the search results page should have correct title & header$")
+	public void the_search_results_page_should_have_correct_title_header() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	@Then("^the search results page should have correct page footer$")
+	public void the_search_results_page_should_have_correct_page_footer() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
+
+	@Then("^the search results page should have \"([^\"]*)\"$")
+	public void the_search_results_page_should_have(String arg1, DataTable arg2) throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		// For automatic transformation, change DataTable to one of
+		// List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
+		// E,K,V must be a scalar (String, Integer, Date, enum etc)
+		throw new PendingException();
+	}
 
 
 }

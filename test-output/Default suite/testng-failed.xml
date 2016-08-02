@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
     <classes>
-      <class name="com.seleniumtests.test.WebDriverExcercise">
-        <methods>
-          <include name="closeBrowser"/>
-          <include name="navigateToSKUS"/>
-          <include name="loginProcedure"/>
-          <include name="createSKUResource" invocation-numbers="0"/>
-          <include name="initalisation"/>
-        </methods>
-      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+      <class name="com.seleniumtests.test.WebDriverExcercise"/>
     </classes>
-  </test> <!-- Default test(failed) -->
+  </test> <!-- Default test -->
 </suite> <!-- Failed suite [Default suite] -->

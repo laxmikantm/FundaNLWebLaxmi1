@@ -3,88 +3,79 @@ package com.seleniumtests.test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.remote.server.handler.FindElement;
-import org.testng.Assert;
 import org.testng.ITestNGListener;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.seleniumtests.core.SelTestCase;
-import com.seleniumtests.dataobject.LoginData;
-import com.seleniumtests.dataobject.SKUData;
-import com.seleniumtests.pageobject.AddNewSKUPage;
-import com.seleniumtests.pageobject.LoginPage;
+import com.seleniumtests.dataobject.LandingPageData;
+import com.seleniumtests.pageobject.HomePage;
 import com.seleniumtests.pageobject.LandingPage;
-import com.seleniumtests.pageobject.SKUSHomePage;
 import com.seleniumtests.support.Helper;
 
 public class WebDriverExcercise extends SelTestCase implements ITestNGListener {
 
-	LoginPage loginPage;
+
+	HomePage homePage;
 	LandingPage landingPage;
-	SKUSHomePage skusPage;
-	AddNewSKUPage addNewSKUPage;
 
-	@Test(dataProvider = "loginData", dataProviderClass = LoginData.class)
-	public void loginProcedure(LoginData loginData) throws IOException {
-		
-		loginPage= new LoginPage(driver);
-		loginPage
-				.getBasePage();
-		loginPage
-				.keyInLogin
-						(loginData.getUsername(), loginData.getPassword());			
-		 landingPage=loginPage.signIn();
-			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-			Helper.takeScreenSnapShot(driver, "After_Login");
-		
+
+
+	@Test(testName = "Search Produre",dataProvider = "searchData", dataProviderClass = LandingPageData.class)
+	public void searchProcedure(LandingPageData landingPageData) throws IOException {
+
+		landingPage= new LandingPage(driver);
+		landingPage.
+		getBasePage(driver);
+
+
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		Helper.takeScreenSnapShot(driver, "After_Landing");
+
 		softAssert
-			.assertTrue
-					(landingPage.verifyPageURL()
-							, "Landing Page URL's not as per expected");
-						
-		
+		.assertTrue
+		(landingPage.getPageURL()
+				, "Landing Page URL's not as per expected");
+
+
 		softAssert
-			.assertTrue
-				(landingPage
-					.getPageTitle(driver)
-							.equalsIgnoreCase(Helper.EXPECTED_TITLE_LANDING_PAGE));
+		.assertTrue
+		(landingPage
+				.getPageTitle(driver)
+				.equalsIgnoreCase(Helper.EXPECTED_TITLE_LANDING_PAGE));
+
+		homePage = landingPage
+				.performSearch(landingPageData.getSearchKeyword());
+
+		Reporter.log("**Search Performed for the Supplied Keyword.**");
+
 
 	}
-	
-	
-	@Test(dependsOnMethods="loginProcedure")
-	public void navigateToSKUS() throws IOException{
-		skusPage=landingPage.navigateToSKUS();
-			Helper.takeScreenSnapShot(driver, "After_Navigate_to_SKUS");			
-			driver.manage()
-					.timeouts()
-							.implicitlyWait(4, TimeUnit.SECONDS);
-		
+
+	@Test(testName = "Check if Videos Returned in Result", dependsOnMethods="searchProcedure")
+	public void testIfVideosReturnedInResult() {
 		softAssert
-			.assertTrue
-					(skusPage
-							.verifyPageURL()
-									, "SKUS page URL is not as per expected");
-		
+		.assertTrue((homePage.getSearchResultStatus()==true), "Error: Search Result not displayed for given keyword.");
+
+		Reporter.log("**One or more Number video(s) returned in the search result for the supplied keyword.**");
+
+	}
+
+	@Test(testName = "Check if Correct Type of Video for the given Keyword",dependsOnMethods="testIfVideosReturnedInResult")
+	public void testIfCorrectTypeofVideoPresentInResult() {
 		softAssert
-			.assertTrue
-				(skusPage
-						.getPageTitle(driver)
-								.equalsIgnoreCase(Helper.EXPECTED_TITLE_SKUSPAGE));
+		.assertTrue(homePage.getVideoTypeRef().contains(Helper.EXPECTED_VIDEO_TYPE), "Error: Search result Thumbnail URL does not contain Car type");
+
+		Reporter.log("**Correct Type of video asset returned in the result.**");
+
 	}
-	
-	@Test(dependsOnMethods="navigateToSKUS",dataProvider = "skuData", dataProviderClass = SKUData.class)
-	public void createSKUResource(SKUData skuData) throws IOException{
-		
-		addNewSKUPage=skusPage.createNewSKU();
-		skusPage=addNewSKUPage.addNewSKU(skuData);
-			Helper.takeScreenSnapShot(driver, "After-Submitting-new-SKUData");
-		
-		
+
+
+	@Test(testName = "BackEnd: Check if Google Analytics Present in DOM.")
+	public void testForGoogleAnalyticsPresent() {
+		softAssert
+		.assertTrue(homePage.getInnerHTML().contains(Helper.GOOGLE_TAGMANAGER), "Error: Google Tag Manager script not present in HTML.");
 	}
-	
-	
+
+
 }

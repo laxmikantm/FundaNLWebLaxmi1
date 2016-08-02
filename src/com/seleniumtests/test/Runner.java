@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.seleniumtests.test;
 
@@ -18,8 +18,8 @@ import cucumber.api.junit.Cucumber;
 		features = {"src/com/seleniumtests/resources"}
 		,format ={"pretty", "html:target/cucumber-html-report"}
 		,glue={"com.seleniumtests.test"}
-		,tags = {"@runY"}
-		) 
+		,tags = {"@runX"}
+		)
 public class Runner {
 
 }

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" verbose="3" name="Failed suite [Selenium Tests]" parallel="tests">
+  <parameter name="browser" value="FF"/>
+  <listeners>
+    <listener class-name="com.seleniumtests.test.WebDriverExcercise"/>
+  </listeners>
+  <test name="Test in FF">
+    <parameter name="browser" value="FF"/>
     <classes>
-      <class name="com.seleniumtests.test.WebDriverExcercise">
-        <methods>
-          <include name="closeBrowser"/>
-          <include name="navigateToSKUS"/>
-          <include name="loginProcedure"/>
-          <include name="createSKUResource" invocation-numbers="0"/>
-          <include name="initalisation"/>
-        </methods>
-      </class> <!-- com.seleniumtests.test.WebDriverExcercise -->
+      <class name="com.seleniumtests.test.WebDriverExcercise"/>
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test in FF -->
+</suite> <!-- Failed suite [Selenium Tests] -->

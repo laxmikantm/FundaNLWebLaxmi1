@@ -20,10 +20,7 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
@@ -49,32 +46,27 @@ public class Helper {
 
 	public static Logger loggerHelperLevel = Logger.getLogger("Helper");
 
-	public static final String BaseURL="https://demo.oneflowcloud.com/";
+	public static final String BaseURL="https://www.pond5.com/";
+	public static final String LandingPage="stock-video-footage/1/car.html#1/2063/car";
+	public static final String SEARCH_KEYWORD = "car";
+	public static final String EXPECTED_VIDEO_TYPE = "car";
+	public static final String GOOGLE_TAGMANAGER = "www.googletagmanager.com";
 
-	public static final String USER_NAME="SteeleVirginia";
-	public static final String PASSWORD="challenge!";
-	
-	public static final String SKU_CODE_PART1="LAXMI-TEST-";
-	public static final String DESCRIPTION="Lorem ipsum dolor sit amet, singulis abhorreant nam in, pro.";
-	public static final String PRODUCT_TYPE_STRING="card";
-	public static int UNIT_COST=10;
-	public static final int MAX_ITEMS=5;
+	public static final String EXPECTED_TITLE_LANDING_PAGE = "Car Stock Footage ~ Royalty Free Car Stock Videos | Pond5";
 
-	public static final String EXPECTED_TITLE_LANDING_PAGE = "OneFlow Cloud";
-	public static final String EXPECTED_TITLE_SKUSPAGE ="OneFlow Cloud";
-	 
-	public static boolean isAlertPresent(WebDriver driver) 
-	{ 
 
-		try 
-		{ 
-			driver.switchTo().alert(); 
-			return true; 
-		}   // try 
-		catch (NoAlertPresentException Ex) 
-		{ 
-			return false; 
-		}   // catch 
+	public static boolean isAlertPresent(WebDriver driver)
+	{
+
+		try
+		{
+			driver.switchTo().alert();
+			return true;
+		}   // try
+		catch (NoAlertPresentException Ex)
+		{
+			return false;
+		}   // catch
 	}   // isAlertPresent()
 
 
@@ -108,11 +100,11 @@ public class Helper {
 		timeString=dateFormat.format(date);
 		return timeString;
 	}
-	
-	
-	
 
-	public static void takeScreenSnapShot(WebDriver driver,String prefix) throws IOException{
+
+
+
+	public static void takeScreenSnapShot(final WebDriver driver,String prefix) throws IOException{
 
 		String fileName="";
 
@@ -122,7 +114,7 @@ public class Helper {
 		DateFormat dateFormat = new SimpleDateFormat("-dd-MM-yy-hhmmss");
 		Date date = new Date();
 
-		fileName +=dateFormat.format(date);	
+		fileName +=dateFormat.format(date);
 
 		File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try{
@@ -137,7 +129,7 @@ public class Helper {
 		}
 
 		return;
-	}	
+	}
 
 	public static void takeFieldSnapshot(WebDriver driver,WebElement element, String prefix) throws IOException  {
 
@@ -148,7 +140,7 @@ public class Helper {
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy-hhmmss");
 		Date date = new Date();
 
-		fileName +=dateFormat.format(date);	
+		fileName +=dateFormat.format(date);
 
 		File screen = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
@@ -161,7 +153,7 @@ public class Helper {
 
 		img = ImageIO.read(screen);
 
-		BufferedImage dest = img.getSubimage(p.getX(), p.getY(), width,   
+		BufferedImage dest = img.getSubimage(p.getX(), p.getY(), width,
 				height);
 
 		ImageIO.write(dest, "png", screen);
@@ -181,9 +173,9 @@ public class Helper {
 				.getDefaultConfiguration();
 		return screenRecorder = new ScreenRecorder(gc, new Format(MediaTypeKey,MediaType.FILE, MimeTypeKey, MIME_QUICKTIME),
 				new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey,ENCODING_QUICKTIME_JPEG, CompressorNameKey,
-						ENCODING_QUICKTIME_JPEG, DepthKey, (int) 24,FrameRateKey, Rational.valueOf(15), QualityKey, 1.0f,
-						KeyFrameIntervalKey, (int) (15 * 60)), new Format(MediaTypeKey,MediaType.VIDEO/*MediaType.<span class="searchterm5">VIDEO</span>*/, EncodingKey, "black", FrameRateKey,Rational.valueOf(30)),
-						null); 
+						ENCODING_QUICKTIME_JPEG, DepthKey, 24,FrameRateKey, Rational.valueOf(15), QualityKey, 1.0f,
+						KeyFrameIntervalKey, 15 * 60), new Format(MediaTypeKey,MediaType.VIDEO/*MediaType.<span class="searchterm5">VIDEO</span>*/, EncodingKey, "black", FrameRateKey,Rational.valueOf(30)),
+				null);
 
 
 	}
