@@ -9,8 +9,8 @@
 		<listener class-name="com.seleniumtests.test.WebDriverExcercise" />
 	</listeners>
 
- <test name="Test in FF">
-		<parameter name="browser" value="FF"></parameter>
+ <test name="Test for Native App">
+		<parameter name="browser" value="Native"></parameter>
 		<classes>
 			<class name="com.seleniumtests.test.WebDriverExcercise" />
 		</classes>
