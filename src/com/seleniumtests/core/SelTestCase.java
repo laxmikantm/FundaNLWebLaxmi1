@@ -17,11 +17,14 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.seleniumtests.support.Helper;
 
 public class SelTestCase {
@@ -29,7 +32,9 @@ public class SelTestCase {
 	protected WebDriver driver;
 	public SoftAssert softAssert;
 	protected ScreenRecorder src;
-
+	
+	public ExtentReports extent;
+	public ExtentTest extentTest;
 
 	@BeforeSuite
 	@Parameters("browser")
@@ -79,4 +84,13 @@ public class SelTestCase {
 		driver.quit();
 		softAssert.assertAll();
 	}
+	
+	
+	//Extent Test
+	
+	 @BeforeClass
+	 public void M1(){
+	  extent = Helper.Instance();
+	  driver = new FirefoxDriver();
+	 }
 }

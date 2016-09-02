@@ -39,6 +39,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.relevantcodes.extentreports.ExtentReports;
+
 
 
 
@@ -53,6 +55,31 @@ public class Helper {
 	public static final String GOOGLE_TAGMANAGER = "www.googletagmanager.com";
 
 	public static final String EXPECTED_TITLE_LANDING_PAGE = "Car Stock Footage ~ Royalty Free Car Stock Videos | Pond5";
+	
+//	public static final ExtentReports extent = new ExtentReports("");
+	
+	public static ExtentReports Instance()
+    {
+		ExtentReports extent;
+		String Path = "./ExtentReport.html";
+		System.out.println(Path);
+		extent = new ExtentReports(Path, false);
+		extent.config()
+		.documentTitle("Laxmi Automation Report")
+		.reportName("Laxmi Trial Smoke");
+
+		return extent;
+    }
+	public static String CaptureScreen(WebDriver driver, String ImagesPath)
+	{
+		TakesScreenshot oScn = (TakesScreenshot) driver;
+		File oScnShot = oScn.getScreenshotAs(OutputType.FILE);
+		File oDest = new File(ImagesPath+".jpg");
+		try {
+			FileUtils.copyFile(oScnShot, oDest);
+		} catch (IOException e) {System.out.println(e.getMessage());}
+		return ImagesPath+".jpg";
+     }
 
 
 	public static boolean isAlertPresent(WebDriver driver)
