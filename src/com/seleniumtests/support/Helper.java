@@ -17,7 +17,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -148,7 +147,7 @@ public class Helper {
 			FileUtils.copyFile(srcFile, new File("target/snapshots/"+fileName+".jpg"));
 		}
 
-		catch(NoSuchFileException e)
+		catch(Exception e)
 		{
 			System.out.println("Unable to access folder for Snapshots");
 

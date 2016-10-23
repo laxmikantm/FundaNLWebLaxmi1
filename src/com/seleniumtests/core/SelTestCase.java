@@ -10,8 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -26,6 +24,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.seleniumtests.support.Helper;
+
+//import static com.sun.xml.internal.ws.policy.sourcemodel.wspolicy.XmlToken.Optional;
 
 public class SelTestCase {
 
@@ -46,14 +46,15 @@ public class SelTestCase {
 
 		} else if(browser.equalsIgnoreCase("FF")){
 			driver = new FirefoxDriver();
-		} else if (browser.equalsIgnoreCase("Phantom")){
-			DesiredCapabilities phantomBeast = DesiredCapabilities.phantomjs();
-			phantomBeast.setJavascriptEnabled(true);
-			phantomBeast.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("user.dir")+"\\phantomjs.exe");
-			phantomBeast.setJavascriptEnabled(true);
-			driver = new PhantomJSDriver(phantomBeast);
-			this.driver = new PhantomJSDriver(phantomBeast);
-		} else if(browser.equalsIgnoreCase("IE")){
+//		} else if (browser.equalsIgnoreCase("Phantom")){
+//			DesiredCapabilities phantomBeast = DesiredCapabilities.phantomjs();
+//			phantomBeast.setJavascriptEnabled(true);
+//			phantomBeast.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("user.dir")+"\\phantomjs.exe");
+//			phantomBeast.setJavascriptEnabled(true);
+//			driver = new PhantomJSDriver(phantomBeast);
+//			this.driver = new PhantomJSDriver(phantomBeast);
+		}
+		else if(browser.equalsIgnoreCase("IE")){
 			driver= new InternetExplorerDriver();
 		}else if(browser.equalsIgnoreCase("Cloud")){
 			/*Connecting to BrowserStack*/
@@ -90,7 +91,7 @@ public class SelTestCase {
 	
 	 @BeforeClass
 	 public void M1(){
-	  extent = Helper.Instance();
+//	  extent = Helper.Instance();
 	  driver = new FirefoxDriver();
 	 }
 }

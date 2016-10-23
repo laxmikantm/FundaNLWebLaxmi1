@@ -28,7 +28,7 @@ public class LandingPage extends BasePage {
 		this.driver = driver;
 		AjaxElementLocatorFactory aFactory= new AjaxElementLocatorFactory(driver, 20);
 		PageFactory.initElements(aFactory, this);
-		myWait = new WebDriverWait(driver, 15);
+//		myWait = new WebDriverWait(driver, 15);
 		jse = (JavascriptExecutor)driver;
 	}
 

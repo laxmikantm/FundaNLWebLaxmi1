@@ -97,8 +97,8 @@ formatter.match({
   "location": "WebDriverExcerciseBDD.landingPage()"
 });
 formatter.result({
-  "duration": 287357092,
-  "error_message": "java.lang.NullPointerException\n\tat com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)\n\tat org.openqa.selenium.support.ui.FluentWait.\u003cinit\u003e(FluentWait.java:94)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:70)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:44)\n\tat com.seleniumtests.pageobject.LandingPage.\u003cinit\u003e(LandingPage.java:31)\n\tat com.seleniumtests.test.WebDriverExcerciseBDD.landingPage(WebDriverExcerciseBDD.java:30)\n\tat ✽.Given I am on the Pond5 Home Page(Pond5ResourceSearch.feature:5)\n",
+  "duration": 512612162,
+  "error_message": "java.lang.NullPointerException\r\n\tat com.seleniumtests.pageobject.BasePage.getBasePage(BasePage.java:39)\r\n\tat com.seleniumtests.test.WebDriverExcerciseBDD.landingPage(WebDriverExcerciseBDD.java:32)\r\n\tat ✽.Given I am on the Pond5 Home Page(Pond5ResourceSearch.feature:5)\r\n",
   "status": "failed"
 });
 formatter.match({

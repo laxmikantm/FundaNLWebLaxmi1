@@ -19,7 +19,7 @@ import cucumber.api.java.en.When;
  */
 public class WebDriverExcerciseBDD extends SelTestCase {
 
-	WebDriverExcercise WebDriverExcercise=new WebDriverExcercise();
+	WebDriverExcercise WebDriverExcercise= new WebDriverExcercise();
 	HomePage loginPage;
 	LandingPage landingPage;
 
