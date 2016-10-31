@@ -1,5 +1,5 @@
 package com.seleniumtests.core;
-
+/* Laxmi Somni 2016 */
 
 import java.awt.AWTException;
 import java.io.IOException;
@@ -10,8 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-//import org.openqa.selenium.phantomjs.PhantomJSDriver;
-//import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
@@ -25,7 +23,6 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.seleniumtests.support.Helper;
 
-//import static com.sun.xml.internal.ws.policy.sourcemodel.wspolicy.XmlToken.Optional;
 
 public class SelTestCase {
 
@@ -46,13 +43,6 @@ public class SelTestCase {
 
 		} else if(browser.equalsIgnoreCase("FF")){
 			driver = new FirefoxDriver();
-//		} else if (browser.equalsIgnoreCase("Phantom")){
-//			DesiredCapabilities phantomBeast = DesiredCapabilities.phantomjs();
-//			phantomBeast.setJavascriptEnabled(true);
-//			phantomBeast.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("user.dir")+"\\phantomjs.exe");
-//			phantomBeast.setJavascriptEnabled(true);
-//			driver = new PhantomJSDriver(phantomBeast);
-//			this.driver = new PhantomJSDriver(phantomBeast);
 		}
 		else if(browser.equalsIgnoreCase("IE")){
 			driver= new InternetExplorerDriver();
@@ -65,8 +55,8 @@ public class SelTestCase {
 			caps.setCapability("browserstack.debug", "true");
 
 			driver = new RemoteWebDriver(
-					//Note: Kindly replace below URL with the your company/team's Browserstack account key.
-					new URL("http://laxmi15:BQsNxDz1AEdALsqbx5Bq@hub.browserstack.com/wd/hub"),
+					//TODO Note: Kindly replace below URL with the your company/team's Browserstack account key.
+					new URL("http://laxmi15:xxxxxxxxxxxxxx@hub.browserstack.com/wd/hub"),
 					caps
 					);
 
@@ -87,11 +77,9 @@ public class SelTestCase {
 	}
 	
 	
-	//Extent Test
-	
+	//Extent Report Test
 	 @BeforeClass
 	 public void M1(){
-//	  extent = Helper.Instance();
 	  driver = new FirefoxDriver();
 	 }
 }

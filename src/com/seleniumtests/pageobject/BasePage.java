@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,21 +32,20 @@ public class BasePage {
 
 
 	public String getPageURL(WebDriver driver){
-		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.SECONDS);
 		return driver.getCurrentUrl();
 	}
 
-	public void getBasePage(WebDriver driver){
+	public void getRentPage(WebDriver driver){
+		driver.get(Helper.BaseURL+"/huur/");
 		driver.manage().window().maximize();
-		driver.get(Helper.BaseURL);
-
-
 	}
+
+
 
 	public String getPageTitle(WebDriver driver) {
 		return driver
-				.getTitle()
-				.toString();
+				.getTitle();
 
 	}
 

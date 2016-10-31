@@ -3,10 +3,15 @@
  */
 package com.seleniumtests.test;
 
+import com.seleniumtests.core.SelTestCase;
+import cucumber.api.java.Before;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+
+import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author Laxmi.Somni
@@ -21,5 +26,4 @@ import cucumber.api.junit.Cucumber;
 		,tags = {"@runX"}
 		)
 public class Runner {
-
 }

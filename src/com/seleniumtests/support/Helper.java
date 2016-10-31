@@ -47,13 +47,16 @@ public class Helper {
 
 	public static Logger loggerHelperLevel = Logger.getLogger("Helper");
 
-	public static final String BaseURL="https://www.pond5.com/";
-	public static final String LandingPage="stock-video-footage/1/car.html#1/2063/car";
-	public static final String SEARCH_KEYWORD = "car";
+	public static final String BaseURL = "http://www.funda.nl/";
+
+	public static final String SEARCH_KEYWORD = "Den Haag";
 	public static final String EXPECTED_VIDEO_TYPE = "car";
 	public static final String GOOGLE_TAGMANAGER = "www.googletagmanager.com";
-
-	public static final String EXPECTED_TITLE_LANDING_PAGE = "Car Stock Footage ~ Royalty Free Car Stock Videos | Pond5";
+	public static final String SEARCH_RESULT_PAGE_FOR_HAGUE = "Huizen te huur in Den Haag [funda]";
+	public static final String SUGGESTION_TEXT = "Plaats, buurt, adres etc.";
+	public static final String MAX_BUDGET = "€ 1.250";
+	public static final String DISTANCE = "+ 1 km";
+	public static final String EXPECTED_TITLE_HOME_PAGE = "Zoek huizen en appartementen te koop in Nederland [funda]";
 	
 //	public static final ExtentReports extent = new ExtentReports("");
 	

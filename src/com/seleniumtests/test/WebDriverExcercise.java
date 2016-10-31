@@ -1,82 +1,90 @@
 package com.seleniumtests.test;
+/* Laxmi Somni 2016 */
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Assert;
 import org.testng.ITestNGListener;
 import org.testng.Reporter;
+import com.seleniumtests.core.SelTestCase;
+import com.seleniumtests.dataobject.HomePageData;
+import com.seleniumtests.pageobject.ResultsPage;
+import com.seleniumtests.pageobject.HomePage;
+import com.seleniumtests.support.Helper;
 import org.testng.annotations.Test;
 
-import com.seleniumtests.core.SelTestCase;
-import com.seleniumtests.dataobject.LandingPageData;
-import com.seleniumtests.pageobject.HomePage;
-import com.seleniumtests.pageobject.LandingPage;
-import com.seleniumtests.support.Helper;
+import static com.seleniumtests.support.Helper.SEARCH_RESULT_PAGE_FOR_HAGUE;
 
 public class WebDriverExcercise extends SelTestCase implements ITestNGListener {
+    ResultsPage resultsPage;
+    HomePage homePage;
+
+    @Test(testName = "Verify Home Page", priority = 0)
+    public void verifyOpeningHomePage() throws IOException {
+
+        homePage = new HomePage(driver);
+        homePage.
+                getRentPage(driver);
+
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        Helper.takeScreenSnapShot(driver, "After_Landing");
+
+        softAssert
+                .assertTrue
+                        (homePage.getPageURL().contains(Helper.BaseURL)
+                                , "Landing Page URL's not as per expected");
 
 
-	HomePage homePage;
-	LandingPage landingPage;
+        softAssert
+                .assertTrue
+                        (homePage
+                                .getPageTitle(driver)
+                                .equalsIgnoreCase(Helper.EXPECTED_TITLE_HOME_PAGE));
+
+        Reporter.log("**Verified that we are on intended Homepage.**");
 
 
+    }
+
+    @Test(testName = "BackEnd: Check if Google Analytics Present in DOM.", priority = 1)
+    public void testForGoogleAnalyticsPresent() {
+        Assert
+                .assertTrue(homePage.getInnerHTML().contains(Helper.GOOGLE_TAGMANAGER),
+                        "Error: Google Tag Manager script not present in HTML.");
+    }
 
 
-	@Test(testName = "Search Produre",dataProvider = "searchData", dataProviderClass = LandingPageData.class)
-	public void searchProcedure(LandingPageData landingPageData) throws IOException {
+    @Test(testName = "Default search text suggestion", priority = 1)
+    public void validateDefaultSuggestionText() {
+        softAssert
+                .assertTrue(homePage.returnTextSuggestion().equalsIgnoreCase(Helper.SUGGESTION_TEXT),
+                        "Error: Default suggestion text isn't as per expected.");
+    }
 
-		landingPage= new LandingPage(driver);
-		landingPage.
-		getBasePage(driver);
+    @Test(testName = "Search Produre", dataProvider = "searchData", dataProviderClass = HomePageData.class, dependsOnMethods = "verifyOpeningHomePage")
+    public void searchProcedure(HomePageData homePageData) throws IOException {
 
+        resultsPage = homePage
+                .performSearch(homePageData.getSearchKeyword(), homePageData.getDistance(), homePageData.getMaxBudget());
 
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		Helper.takeScreenSnapShot(driver, "After_Landing");
+        softAssert.assertTrue(resultsPage.getTitle().equalsIgnoreCase(SEARCH_RESULT_PAGE_FOR_HAGUE),
+                "Error: Not landed on correct search result page.");
 
-		softAssert
-		.assertTrue
-		(landingPage.getPageURL()
-				, "Landing Page URL's not as per expected");
-
-
-		softAssert
-		.assertTrue
-		(landingPage
-				.getPageTitle(driver)
-				.equalsIgnoreCase(Helper.EXPECTED_TITLE_LANDING_PAGE));
-
-		homePage = landingPage
-				.performSearch(landingPageData.getSearchKeyword());
-
-		Reporter.log("**Search Performed for the Supplied Keyword.**");
+        softAssert
+                .assertTrue((resultsPage.getSearchResultStatus()),
+                        "Error: Search Result Box is not rendered.");
 
 
-	}
-
-	@Test(testName = "Check if Videos Returned in Result", dependsOnMethods="searchProcedure")
-	public void testIfVideosReturnedInResult() {
-		softAssert
-		.assertTrue((homePage.getSearchResultStatus()==true), "Error: Search Result not displayed for given keyword.");
-
-		Reporter.log("**One or more Number video(s) returned in the search result for the supplied keyword.**");
-
-	}
-
-	@Test(testName = "Check if Correct Type of Video for the given Keyword",dependsOnMethods="testIfVideosReturnedInResult")
-	public void testIfCorrectTypeofVideoPresentInResult() {
-		softAssert
-		.assertTrue(homePage.getVideoTypeRef().contains(Helper.EXPECTED_VIDEO_TYPE), "Error: Search result Thumbnail URL does not contain Car type");
-
-		Reporter.log("**Correct Type of video asset returned in the result.**");
-
-	}
+        Reporter.log("**Search Performed.**");
 
 
-	@Test(testName = "BackEnd: Check if Google Analytics Present in DOM.")
-	public void testForGoogleAnalyticsPresent() {
-		softAssert
-		.assertTrue(homePage.getInnerHTML().contains(Helper.GOOGLE_TAGMANAGER), "Error: Google Tag Manager script not present in HTML.");
-	}
+    }
 
+    @Test(testName = "Check if Left Hand Pane is present on Search reult page", dependsOnMethods = "searchProcedure")
+    public void testForLeftHandPanePresence() {
+        softAssert
+                .assertTrue((resultsPage.getLeftHandPaneStatus()), "Error: Left hand pane not displayed on the search result page.");
+    }
 
 }
