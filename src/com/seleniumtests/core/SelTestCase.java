@@ -42,6 +42,7 @@ public class SelTestCase {
 			driver = new ChromeDriver();
 
 		} else if(browser.equalsIgnoreCase("FF")){
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/geckodriver");
 			driver = new FirefoxDriver();
 		}
 		else if(browser.equalsIgnoreCase("IE")){

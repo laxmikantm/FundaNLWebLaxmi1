@@ -1,6 +1,5 @@
 (c) Laxmikant Somni
-laxmi.somni@gmail.com
-Jul-Aug 2016
+
 
 =========================
 Note
@@ -47,19 +46,6 @@ and
 4. TestNG result
 /LaxmiSearchScreenExcercise/test-output/Default suite/Default test.html
 
-=================================================
-Challenges:
-1. Haven't managed to complete BDD variant since feature files need to reviewed with Team / Business Analyst
-2. Site is Graphics heavy with lots of dynamic JavaScript, which delays the loading of pages & sub-elements
-[In future, we can look at implementing Headless testing (PhantomJS / HTMLUnitDriver etc..) for rapid execution]
-3. Very limited number of ids are present in DOM so good study of DOM & HTML is necessary in order to build right locator strategy
-[Currently I have used XPATH as I was not too familiar with DOM, but in future will need to look at using css, class, tagname etc.]
-4. Due to technical issue SoftAsserts are not closing. Although they are working for each test but failing to closeAll. I mark this as OPEN-issue on myself.
-5. Due to limited time available I was not able to complete test for filter.
-6. Although Framework is robust, but I feel that- tests could have been more robust if we could have a Agile braintroming to define BDD tests
-And what all aspects we want to validate using Automation.
-
-Please feel free to get back to me.
 Thanks
 
 

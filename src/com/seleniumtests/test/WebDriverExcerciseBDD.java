@@ -11,6 +11,7 @@ import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -28,9 +29,9 @@ public class WebDriverExcerciseBDD extends SelTestCase {
 	HomePage homePage;
 
 
-	@Before
+	@Before("@runX")
 	public void beforeScenario() throws IOException, AWTException {
-		initalisation("FF");
+		initalisation("FF"); // Change to FF if necessary
 	}
 
     @And("^I am on the Funda Home Page$")
@@ -80,4 +81,6 @@ public class WebDriverExcerciseBDD extends SelTestCase {
 		// Write code here that turns the phrase above into concrete actions
 		throw new PendingException();
 	}
+
+
 }
