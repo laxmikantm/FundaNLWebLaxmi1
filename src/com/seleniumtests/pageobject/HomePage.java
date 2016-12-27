@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePage extends BasePage {
 
-	private static final String HOME_PAGE = "http://www.funda.nl";
+	private static final String HOME_PAGE = "http://computer-database.herokuapp.com/computers";
 
 	private WebDriver driver;
     By maxBudgetDropdown = By.name("filter_FundaHuurPrijsTot");

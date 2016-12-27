@@ -2,6 +2,7 @@ com/seleniumtests/pageobject/ResultsPage.class
 com/seleniumtests/Listners/ExtentCucumberFormatter$1.class
 com/seleniumtests/dataobject/HomePageData.class
 com/seleniumtests/Listners/RetryListener.class
+com/seleniumtests/test/WebDriverExcercise2.class
 com/seleniumtests/test/WebDriverExcerciseBDD.class
 com/seleniumtests/support/Helper.class
 com/seleniumtests/test/WebDriverExcercise.class
@@ -11,9 +12,9 @@ com/seleniumtests/pageobject/InLoggenPage.class
 com/seleniumtests/Listners/ExtentCucumberFormatter.class
 com/seleniumtests/Listners/Retry.class
 com/seleniumtests/test/Stepdefs.class
-com/seleniumtests/test/Runner.class
 com/seleniumtests/rest/controller/RestValidator.class
+com/seleniumtests/test/Runner.class
 com/seleniumtests/rest/controller/RestResponse.class
-com/seleniumtests/pageobject/BasePage.class
 com/seleniumtests/core/SelTestCase.class
+com/seleniumtests/pageobject/BasePage.class
 com/seleniumtests/pageobject/HomePage.class
